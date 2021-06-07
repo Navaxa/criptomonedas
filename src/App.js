@@ -1,3 +1,4 @@
+import {useState, useEffect} from 'react';
 import styled from '@emotion/styled';
 import Form from './components/Form';
 import imagen from './cryptomonedas.png';
@@ -37,6 +38,16 @@ const Heading = styled.h1`
 `;
 
 function App() {
+
+  const [moneda, setMoneda] = useState('');
+  const [criptomoneda, setCriptomoneda] = useState('');
+
+  useEffect(() => {
+    if (moneda === '' || criptomoneda === '') return;
+
+    console.log('Cotizando...');
+  }, [moneda, criptomoneda]);
+
   return (
     <Contenedor>
       <div>
@@ -47,7 +58,10 @@ function App() {
       </div>
       <div>
         <Heading>Cotiza critomonedas al instante</Heading>
-        <Form />
+        <Form 
+          setMoneda={setMoneda}
+          setCriptomoneda={setCriptomoneda}
+        />
       </div>
     </Contenedor>
   );

@@ -21,12 +21,11 @@ const Select = styled.select`
     font-size: 1.2rem;
 `;
 
-const useModena = (label, stateInitial, options) => {
+const useCriptomoneda = (label, stateInitial, options) => {
 
-    
     const [state, setState] = useState('');
 
-    const Seleccionar = () => (
+    const SelectCripto = () => (
         <>
             <Label>{label}</Label>
             <Select
@@ -36,17 +35,17 @@ const useModena = (label, stateInitial, options) => {
                 <option value="">-- Seleccionar --</option>
                 {options.map(option => (
                     <option
-                        key={option.codigo}
-                        value={option.codigo}
+                        key={option.CoinInfo.Id}
+                        value={option.CoinInfo.Name}
                     >
-                        {option.nombre}
+                        {option.CoinInfo.FullName}
                     </option>
                 ))}
             </Select>
         </>
     );
 
-    return [state, Seleccionar, setState];
+    return [state, SelectCripto, setState];
 };
 
-export default useModena;
+export default useCriptomoneda;
