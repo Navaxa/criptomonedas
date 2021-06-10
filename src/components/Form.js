@@ -36,7 +36,7 @@ const Form = ({setMoneda, setCriptomoneda}) => {
         { codigo: 'GBP', nombre: 'Lobra exterlina' },
     ];
 
-    const [moneda, SelectMoneda, setState] = useModena('Selecciona tu moneda', '', MONEDAS);
+    const [moneda, SelectMoneda] = useModena('Selecciona tu moneda', '', MONEDAS);
     const [cripto, SelectCriptoMoneda] = useCriptomoneda('Selecciona tu criptomoneda', '', criptoList);
 
     useEffect(() => {
